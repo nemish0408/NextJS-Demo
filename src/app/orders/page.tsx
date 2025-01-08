@@ -2,8 +2,9 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const orders = () => {
+const Orders = () => {
   const router = useRouter();
+  
   const placeOrder = () => {
     console.log("Order Placed");
     router.replace("/");
@@ -20,4 +21,4 @@ const orders = () => {
   );
 };
 
-export default orders;
+export default Orders;
