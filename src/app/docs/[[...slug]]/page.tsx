@@ -1,6 +1,6 @@
 import React from "react";
 
-const page = ({ params }: { params: { slug: string } }) => {
+const page = ({ params }: { params: { slug?: string[] } }) => {
   if (params.slug?.length === 2) {
     return (
       <h1>
