@@ -1,6 +1,13 @@
 import React from "react";
 
-const page = ({ params }: { params: { slug?: string[] } }) => {
+// Define the type for the component props
+interface PageProps {
+  params: {
+    slug?: string[]; // Catch-all route may be undefined or a string array
+  };
+}
+
+const Page: React.FC<PageProps> = ({ params }) => {
   if (params.slug?.length === 2) {
     return (
       <h1>
@@ -13,4 +20,4 @@ const page = ({ params }: { params: { slug?: string[] } }) => {
   return <div>Docs Page</div>;
 };
 
-export default page;
+export default Page;
