@@ -1,9 +1,9 @@
 import React from "react";
 
-const page = ({ params }: { params: { productId: string } }) => {
+const page = async ({ params }: { params: Promise<{ productId: string }> }) => {
   return (
     <>
-      <h1>Details of Page {params.productId}</h1>
+      <h1>Details of Page {(await params).productId}</h1>
     </>
   );
 };

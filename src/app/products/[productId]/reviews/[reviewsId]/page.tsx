@@ -1,18 +1,18 @@
 import React from "react";
 import { notFound } from "next/navigation";
 
-const page = ({
+const page = async ({
   params,
 }: {
-  params: { productId: string; reviewsId: string };
+  params: Promise<{ productId: string; reviewsId: string }>;
 }) => {
-  if (parseInt(params?.reviewsId) > 100) {
+  if (parseInt((await params)?.reviewsId) > 100) {
     notFound();
   }
   return (
     <>
       <h1>
-        Details of Review {params?.reviewsId} for product {params?.productId}
+        Details of Review {(await params)?.reviewsId} for product {(await params)?.productId}
       </h1>
     </>
   );

@@ -3,11 +3,11 @@ import wondersImages, { WonderImage } from "../../../wonders";
 import Modal from "@/components/modal";
 
 export default function PhotoModal({
-  params: { id },
+  params
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const photo: WonderImage = wondersImages.find((p) => p.id === id)!;
+  const photo: WonderImage = wondersImages.find(async (p) => p.id === (await params).id)!;
 
   return (
     <Modal>

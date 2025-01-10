@@ -2,11 +2,11 @@ import Image from "next/image";
 import wondersImages, { WonderImage } from "../wonders";
 
 export default function PhotoPage({
-  params: { id },
+  params
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const photo: WonderImage = wondersImages.find((p) => p.id === id)!;
+  const photo: WonderImage = wondersImages.find(async (p) => p.id === (await params).id)!;
   return (
     <div className="container mx-auto my-10">
       <div className="w-1/2 mx-auto">
